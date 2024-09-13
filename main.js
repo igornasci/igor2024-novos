@@ -1,6 +1,5 @@
 document.querySelectorAll('.botao').forEach(btn => {
     btn.addEventListener('click',function() {
-
         document.querySelectorAll('.aba-conteudo').forEach(tab =>{
             tab.classList.remove('ativo');
             // document.querySelectorAll('.botao').forEach(tab => {
@@ -25,27 +24,32 @@ for(let i=0;i <botoes.length;i++){
     }
 }
 const contadores = document.querySelectorAll(".contador");
+contadores[0].textContent = "Contagem regressiva";
 const tempoObjetivo1 = new Date("2024-11-18T00:00:00");
 const tempoObjetivo2 = new Date("2024-12-18T00:00:00");
 const tempoObjetivo3 = new Date("2025-01-18T00:00:00");
 const tempoObjetivo4 = new Date("2025-02-18T00:00:00");
-let tempoAtual = new Date();
 
 const tempos =
 [tempoObjetivo1,tempoObjetivo2,tempoObjetivo3,tempoObjetivo4];
 
 contadores[0].textContent = calculaTempo(tempos[0]);
+contadores[0].textContent = tempoObjetivo1
+let tempoAtual = new Date();
 
 
-contadores[0].textContent = calculaTempo(tempos[0]);
-contadores[1].textContent = calculaTempo(tempoObjetivo2);
-contadores[2].textContent = calculaTempo(tempoObjetivo3);
-contadores[3].textContent = calculaTempo(tempoObjetivo4);
+// contadores[0].textContent = calculaTempo(tempos[0]);
+// contadores[1].textContent = calculaTempo(tempos[1]);
+// contadores[2].textContent = calculaTempo(tempos[2]);
+// contadores[3].textContent = calculaTempo(tempos[3]);
 
+for(let i= 0; i<contadores.length;i++){
+    contadores[i].textContent = calculaTempo(tempo[i]); 
+         }
 
 function calculaTempo (tempoObjetivo){
 let tempoAtual = new Date();
-let tempoFinal = tempoObjetivo - tempoAtual;
+let tempoFinal = tempoObjetivo - tempoAtual;''
 let segundos = Math.floor(tempoFinal/1000);
 let minutos = Math.floor(segundos/60);
 let horas = Math.floor(minutos/60);
@@ -56,12 +60,17 @@ minutos%= 60;
 horas%= 24;
 
 return dias + " d " + horas + " h " + minutos + " m " + segundos + " s ";
+
+
  
 function atualizaCronometro(){
    for(let i= 0; i<contadores.length;i++){
-    contadores[i].textContent = calculaTempo(tempo[i]);
+    contadores[i].textContent = calculaTempo(tempos[i]);
     }
 }
 atualizaCronometro();
-}
 
+for (let i = 0; i < contadores.length; i++) {
+    contadores[1].textContent = calculaTempo(tempos [i]);
+}
+}
